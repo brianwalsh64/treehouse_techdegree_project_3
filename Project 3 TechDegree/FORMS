@@ -1,0 +1,76 @@
+  <FORM>  
+The form element wraps a section of the document that contains form controls. The action attribute specifies the web address of a program that processes the information submitted via the form. The method attribute specifies the HTTP method that the browser should use to submit the form, such as POST or GET. 
+Forms cannot be nested inside one another.
+<form> action="index.html"  method="post"</form>
+
+  <INPUT>
+The input element is used to create many different types of form controls. The type attribute specifies what kind of form control should be rendered, such as text, email, passwords, and more. The name attribute is submitted with form data so that server-side code can parse the information.
+<input type="email" id="email" name=user_email"">
+
+  <TEXTAREA>
+The textarea element accepts multiple lines of text from the user. Most browsers will render the textarea element with a widget to allow for resizing the editing area.
+This is best used when a single line of text wont work, such as a comment space for user feedback.
+<textarea id="bio" name="user_bio"> </textarea>
+  
+  <BUTTON>
+Just as the name implies, the button element will render a clickable button. The type attribute specifies whether the button should submit the form data, reset the form, or have no default behavior for use with JavaScript.
+<button type="submit">Sign Up</button>
+  <LABEL>
+This text helps the user to understand what kind of data they should add to each form field. The 'for' attribute also provides focus for the field. Focus is when a mouse pointer hovers on a label and then a flashing cursor appears in the field.
+The label will be matched to the input element with the same 'id' attribute as the label 'for' attribute.
+<label for="name" >Name</label
+<input type="text" id="name"> // this will match
+<input type="text" id="dog"> // this will NOT match
+
+  <FIELDSET>
+The fieldset element wraps multiple form elements into common groups. This can help organize a form and make it easier to understand for users.
+<fieldset> ..... </fieldset> // goes inside the form element
+
+
+  <LEGEND>
+The legend element is similar to the label element, but instead of labeling a form control, it labels a fieldset. Adding a legend to a fieldset can provide some helpful context for users that are filling out a form.
+<legend>Your Profile</legend> // goes inside the filedset element
+
+  <SELECT>
+This type of form control is ideal for scenarios where the user must choose one option from a preset list of 5 or more choices. The select element renders a drop-down menu that contains selectable options.
+  <OPTION>
+The option element represents one of the choices that a user can choose in a select menu. It should always be nested inside of a select element.
+  <OPTGROUP>
+The optgroup element wraps one or more option elements and helps to create logical groups. The label attribute specifies the text that the optgroup should display above the nested options.
+
+<select>
+  <optgroup label="web stuff">
+	<option value="Front-end developer">Front-end developer</option>
+	<option value="Python developer">Python developer</option>
+	<option value="PHP developer">PHP developer</option>
+  </optgroup
+  <optgroup label="mobile app">
+	<option value="Ruby developer">Ruby developer</option>
+	<option value="IOS developer">IOS developer</option>
+	<option value="Mobile developer">Mobile developer</option>
+	<option value="Rails developer">Railsdeveloper</option>
+  </optgroup>
+  <optgroup label="business">
+	<option value="Mac developer">Mac developer</option>
+	<option value="Freelance developer">Freelance developer</option>
+	<option value="Business developer">Business developer</option>
+  </optgroup>
+</select>
+  <RADIO>
+If the user only needs to choose from 5 or fewer options, then it's better to use radio buttons instead of a select menu. 
+Remember that in order to group radio buttons together, they must all share the same value for the name attribute.
+<input type="radio" id="under_13" value="under_13" name="user_age">
+<input type="radio" id="over_13" value="over_13" name="user_age">
+// 2 buttons differnt values same name attribute, to group together
+
+  <CHECKBOX>
+Sometimes there might be a group of predefined options where the user can select multiple items. That’s where checkboxes are a better choice than radio buttons or select menus.
+<input type="checkbox" id="business" value="business" name="user_job">
+<input type="checkbox" id="career" value="career" name="user_job">
+<input type="checkbox" id="developer" value="developer" name="user_job">
+<input type="checkbox" id="design" value="design" name="user_job">
+##################### THE END #####################################
+
+  
+
+  

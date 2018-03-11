@@ -1,0 +1,152 @@
+USING ATTRIBUTE SELECTORS
+This attribute selector targets any element that has a class attribute:
+
+[class] {
+  border: solid 1px #ccc;
+}
+To target an input element with a type value of submit, we write:
+
+input[type="submit"] {
+  background-color: green;
+}
+This targets a elements with a target value of _blank:
+
+a[target="_blank"] {
+  color: tomato;
+}
+
+  NOTE
+The attribute selectors are really helpful when you have an attribute with many different types, such as the type attribute of the input element: (radio, text, color, checkbox, time, date ..........). Otherwise it is probally best to use ID, class name, or tag name even. The question to ask is how specific do I need to be to get this element ?
+
+  USING ATTRIBUTE SELECTORS WITH FORM ELEMENTS
+This targets an input element with a type value of email:
+
+input[type="email"] {
+  background: yellow;
+}
+
+  REUSE
+The best way to reuse is to create one rule and apply it to many elements.
+Thus, a class name would work best. Remember that multiple class names are seperated by a space no comma like such:
+<input class="buttton br color"></input>
+// this element has 3 class names.... button, br, and color.
+
+  USING COMBINATORS
+The > combinator targets a direct child of an element
+The + combinator targets an element's immediate sibling
+The ~ combinator targets all the specified siblings that follow an element
+
+  REVIEW
+Combinators give us the flexibility of targeting any siblings of an element.
+Attribute selectors can target an element by any of its HTML attributes.
+DRY: Dont Repeat Yourself
+We can define specific child and sibling selectors with combinators
+#########################################################################
+
+  USING: FIRST-CHILD AND :LAST-CHILD
+To target the first child div element inside a parent, we can write:
+div:first-child {
+  margin-left: 0;
+}
+To target the last li element in a list, we can write:
+li:last-child {
+  float: right;
+}
+
+  USING: ONLY-CHILD AND :EMPTY
+To target a span that is the only child element in a parent div, we can write:
+div span:only-child {
+  font-size: .5em;
+}
+To target all elements that have no child content, we can write:
+:empty {
+  background: red;
+}
+
+  USING SUBSTRING MATCHING ATTRIBUTE SELECTORS
+^ tells the browser to match a piece of code that’s at the beginning of an attribute's value
+$ matches a piece at the end of an attribute's value.
+* matches any part of an attribute's value
+a[href*="blog"] {
+  border-bottom: solid 2px steelblue;
+}
+
+  WHEN CAN WE USE THEM
+When a CMS or framework allows no access to HTMl
+When we are unable to ad classes or IDs to elements
+With dynamic lists or image galleries
+
+  USING :DISABLED AND :CHECKED
+To target a disabled input element, we can write:
+input:disabled {
+  background-color: grey;
+}
+To target a radio button or checkbox when checked, we can write:
+input:checked {
+  border-color: red;
+}
+
+  REVIEW
+1) :first-child and :last-child select the first and last child of a parent
+2) :only-child targets elements with no siblings
+3) :empty targets elements with no children or content
+4) Substring Matching Attribute Selectors: match specific pieces of an attribute`s value
+5) ^ tells the browser to match a piece of code that`s at the begining of an attribute`s value
+6) $ matches a piece at the end of an attribure`s value
+7) * matches any part of an attribute`s value
+8) :checked targets the checked state of a radio button or checkbox
+9) :disabled targets disabled text fields
+###########################################################################
+
+  USING :NTH-CHILD
+This targets the even li elements in a parent:
+li:nth-child(even) {
+  background: blue;
+  color: white;
+}
+You can do the same with 'odd' --select odd numbered items. Also, pass in just a number like 3 or 7 --select the third or seventh numbered items. This selector method counts like humans, we start at 1  --very cool.
+Now, here are some expressions we can pass as args:
+(an+b) were 'n' never changes and 'b' is the starting point/ first item and 'a' is the cycle to follow. So (2n+3) would mean start at the third item and follow with every second item. Thus, in a list of 10 items you would be selecting the items 3, 5, 7, and 9. There is a shorthand for the expression, not required of course, but really better to CTD if you want to use it.
+Also, you can count backwards from the starting point by using negative numbers. So (-2n+8) --assume a list of 10  items-- you would be selecting items 8, 6, 4, and 2  --thats kinda cool.
+
+  USING :NTH-OF-TYPE
+This selector targets the 4th div inside the parent, no matter what type of child elements come before it:
+div:nth-of-type(4) {
+  background: #52bab3;
+  color: white;
+}
+So this thing counts according to the type of element. Also, if you change 'nth' to 'last' then it selects the last element and will use the last element as the starting point to count from, so it will count backwards
+
+  USING :ROOT AND :TARGET
+1) :root selects the highest-level parent element in a document.
+// :root {some code} 
+2) :target selects an element when it's the target of a link.
+// :target {some code}
+3) to specify a link use the elements ID and place in front of the colon like so: #col-3:target {some code}
+
+USING :NOT()
+This selector targets all input elements that do not have a type value of button:
+input:not([type="button"]) {
+  border-color: blue;
+} // another pretty cool way to select elements
+// Also, very useful for skipping the first-child or last-child of a set of elements
+
+  USING ::FIRST-LINE AND ::FIRST-LETTER
+The ::first-line and ::first-letter pseudo-elements let us target the first line of text and the first character in a line of text. The selection is placed in front of the double colon (class, ID, tag) like so........
+.intro::first-line {some code}
+
+  USING ::BEFORE AND ::AFTER
+.jpg::before {
+  content: "";
+  some code
+} // using after is the same syntax
+even if empty the content property must be used and the selector is placed before the double colon.
+The only way we're able to generate pseudo-elements is with the content property.
+Pseudo-elements do not work with images and form elements. Replaced elements like input or img have no content, so we shouldn't be able to use generated content for them 
+
+  USING ATTR()
+This pseudo-element rule will insert the value of an a element's title attribute after the link's content:
+a::after {
+  content: attr(title);
+}
+################ THE END ###############################

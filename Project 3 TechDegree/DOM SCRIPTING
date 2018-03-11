@@ -1,0 +1,63 @@
+  FORMS 
+have a special event called submit, which we can listen for.
+It fires on either a click or enter key.
+
+  INPUT 
+element has many types that you can choose:
+checkbox, radio, date, file, month, password, range, time, color, number and of course text, probally the most common, but there are many more CTD.
+
+  CHECKBOX
+the validation state will be either true or false for checked or unchecked respectively.
+
+  TRAVERSE THE DOM
+this means to move up or down the DOM tree to select the elements that you want. Use the parentNode property to do this and you can chain them together to move up the tree as in parent then grandparent then great greandparent. NOTE is there a child node???
+
+  MODULAR
+is a way of writting code in small logical chunks and putting that chunk inside a function. This make the code easier to read and more useful as we can call the function when needed.
+
+  HTML TEXT
+is text that is not placed in a regular html tag for text, such as <p> or <h1 to h6>.  Often it is placed in a <li> tag, but this limits how we can manipulate it. So the best way is to place it in a <span> tag which lets us use CSS and javaScript on it.
+
+  FIRST_ELEMENT_CHILD
+returns the first child element of the parent it is called on. Very handy to select that first child element if you know the parent.
+
+  .VALUE
+The value property **sets or returns** the value of the value attribute of a text field.
+textObjext.value // returns the value
+textObject.value = text // sets the value
+
+  REFACTORING
+The process of makeing your code easier to read and update without changing how the code behaves.
+
+  HTML ELEMENTS 
+have a truthy or falsey value to them, which you can use in a conditional statement. Truthy if on the DOM and falsey if not on the DOM.
+
+  ADD EVENT LISTENER
+You create the addEventListener in javaScript and it self appends to the element you choose on the DOM. That`s what the "add" is all about. You make it in javaScript, but it lives in the DOM. So if you had a list of items and wanted each to have a listener, you could do it with a loop and accessing each item like you would an array, thats way cool.
+
+  SPECIAL NOTE
+The appendChild wont work in a loop. Well, not by itself anyway. You can do it but you must create the element at the same time you append the item.  
+for(i = 0; i < pageNumber; i++) { 
+  let li = document.createElement('li');
+  ul.appendChild(li);
+ }
+
+  SPECIAL NOTE
+let start = start || 1;
+This format is useful in functions, where start is the function parameter. 
+If no arg was passed in, leaving start undefined, then start would be set to a value of 1.
+This is good for default values, but you can set them in the function to begin with:
+function number(start = 1) {
+  some code
+}  -- way cool-- and this is most likely better 
+If you pass 0 as an arg it will return a falsey value and prevent the loop from working 
+-- that would suck for any arrays--
+
+function numbers(start){
+  let start = start || 1;
+  for(i = start; i < 5; i++) {
+    let dog = array[i];
+  }
+} // this function fails if you pass 0 as an arg
+
+#################### THE END ###############################
